@@ -1,6 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
+import styled from 'styled-components';
+
+const StyledAddSmurf = styled.div`
+    form {
+        display: flex;
+        width: 60vw;
+        justify-content: space-around;
+        input {
+            height: 2rem;
+            border-radius: 6px;
+            border: none;
+            
+            text-align: center;
+        }
+        button {
+            width: 8rem;
+            border: none; 
+            border-radius: 6px;
+            background-color: #55a4c7;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+    }
+`;
 
 export function AddSmurf({ formVals, updateInput, addSmurf }) {
   const onValueChange = evt => {
@@ -10,7 +35,7 @@ export function AddSmurf({ formVals, updateInput, addSmurf }) {
     addSmurf(name, age, height);
   };
   return (
-    <div>
+    <StyledAddSmurf>
       <form>
         <input
           placeholder="Name"
@@ -36,7 +61,7 @@ export function AddSmurf({ formVals, updateInput, addSmurf }) {
           Add Smurf
         </button>
       </form>
-    </div>
+    </StyledAddSmurf>
   );
 }
 export default connect(

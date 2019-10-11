@@ -1,27 +1,38 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { connect } from 'react-redux';
-import * as actionCreators from '../state/actionCreators';
-import Smurf from './Smurf';
-import AddSmurf from './AddSmurf';
+import { connect } from "react-redux";
+import * as actionCreators from "../state/actionCreators";
+import Smurf from "./Smurf";
+import AddSmurf from "./AddSmurf";
+import styled from "styled-components";
+import Village from "./Village";
 
-export function App({ smurfs, getSmurfs }) {
+const StyledApp = styled.div`
+  background-image: url("village_background.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  img {
+    width: 20vw;
+    margin: 1rem;
+  }
+`;
+
+export function App({ getSmurfs }) {
   useEffect(() => {
     getSmurfs();
   }, []);
   return (
-    <div className="App">
-      <h1>SMURFS! 2.0 W/ Redux</h1>
-        <AddSmurf />
-      <div>
-        {
-          smurfs.smurfs.map(smurf => {
-            return <Smurf key={smurf.id} smurf={smurf}/>
-          })
-        }
-      </div>
-    </div>
+    <StyledApp>
+      <img src="Smurfs-Logo.png" />
+      <AddSmurf />
+      <Village />
+    </StyledApp>
   );
 }
 
-export default connect(state => state, actionCreators)(App);
+export default connect(
+  state => state,
+  actionCreators
+)(App);
