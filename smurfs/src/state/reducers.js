@@ -7,6 +7,8 @@ export function smurfReducer(state = initState, action) {
   switch (action.type) {
     case types.GET_SMURFS:
       return { ...state, smurfs: action.payload };
+      case types.POST_SMURF:
+            return { ...state, smurfs: [...state.smurfs, action.payload] };
     default:
       return state;
   }

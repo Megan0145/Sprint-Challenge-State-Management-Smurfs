@@ -1,37 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledAddSmurf = styled.div`
-    form {
-        display: flex;
-        width: 60vw;
-        justify-content: space-around;
-        input {
-            height: 2rem;
-            border-radius: 6px;
-            border: none;
-            
-            text-align: center;
-        }
-        button {
-            width: 8rem;
-            border: none; 
-            border-radius: 6px;
-            background-color: #55a4c7;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
+  form {
+    display: flex;
+    width: 60vw;
+    justify-content: space-around;
+    input {
+      height: 2rem;
+      border-radius: 6px;
+      border: none;
+
+      text-align: center;
     }
+    button {
+      width: 8rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #55a4c7;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
 `;
 
 export function AddSmurf({ formVals, updateInput, addSmurf }) {
   const onValueChange = evt => {
     updateInput(evt.target);
   };
-  const onAddSmurf = (name, age, height) => {
+  const onAddSmurf = (e, name, age, height) => {
+    e.preventDefault();
     addSmurf(name, age, height);
   };
   return (
@@ -56,7 +57,9 @@ export function AddSmurf({ formVals, updateInput, addSmurf }) {
           name="age"
         />
         <button
-          onClick={onAddSmurf(formVals.name, formVals.age, formVals.height)}
+          onClick={e =>
+            onAddSmurf(e, formVals.name, formVals.age, formVals.height)
+          }
         >
           Add Smurf
         </button>

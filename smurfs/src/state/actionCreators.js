@@ -23,7 +23,7 @@ export const addSmurf = (name, age, height) => dispatch => {
   axios
     .post(smurfApi, { name: name, age: age, height: height })
     .then(res => {
-      // dispatch({type: types.POST_SMURF, payload: res.data})
+      dispatch({type: types.POST_SMURF, payload: {'name': name, 'age': age, 'height': height}})
       console.log(res);
     })
     .catch(err => console.log(err));
