@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
-import Smurf from "./Smurf";
 import AddSmurf from "./AddSmurf";
 import styled from "styled-components";
 import Village from "./Village";

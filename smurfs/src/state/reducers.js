@@ -14,7 +14,7 @@ export function smurfReducer(state = initState, action) {
 
 const initFormState = {
   name: "",
-  age: 0,
+  age: '',
   height: "0.0cm"
 };
 export function addSmurfFormReducer(state = initFormState, action) {
