@@ -17,3 +17,12 @@ export function updateInput(target) {
         payload: { name: target.name, value: target.value }
     };
 }
+
+export const addSmurf = (name, age, height) => dispatch => {
+    axios.post(smurfApi, {'name': name, 'age': age, 'height': height})
+    .then(res => {
+        // dispatch({type: types.POST_SMURF, payload: res.data})
+        console.log(res)
+    })
+    .catch(err => console.log(err))
+}
