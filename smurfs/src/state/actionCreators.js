@@ -10,3 +10,10 @@ export const getSmurfs = () => dispatch => {
     })
     .catch(err => console.log(err))
 }
+
+export function updateInput(target) {
+    return {
+        type: types.ON_INPUT_CHANGE,
+        payload: { name: target.name, value: target.value }
+    };
+}

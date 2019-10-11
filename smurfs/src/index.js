@@ -8,7 +8,8 @@ import { Provider } from "react-redux";
 import * as reducers from './state/reducers';
 
 const monsterReducer = combineReducers({
-    smurfs: reducers.smurfReducer
+    smurfs: reducers.smurfReducer,
+    formVals: reducers.addSmurfFormReducer
   });
 
 const store = createStore(
