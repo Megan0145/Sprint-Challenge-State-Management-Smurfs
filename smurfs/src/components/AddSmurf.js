@@ -34,7 +34,11 @@ export function AddSmurf({ formVals, updateInput, addSmurf }) {
   const onAddSmurf = (e, name, age, height) => {
     e.preventDefault();
     addSmurf(name, age, height);
+    formVals.name = '';
+    formVals.age = '';
+    formVals.height = '';
   };
+
   return (
     <StyledAddSmurf>
       <form>
@@ -45,7 +49,7 @@ export function AddSmurf({ formVals, updateInput, addSmurf }) {
           name="name"
         />
         <input
-          placeholder="Height"
+          placeholder="Height(cm)"
           value={formVals.height}
           onChange={onValueChange}
           name="height"
