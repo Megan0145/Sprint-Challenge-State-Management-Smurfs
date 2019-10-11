@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
+import Smurf from './Smurf';
 
 export function App({ smurfs, getSmurfs }) {
   useEffect(() => {
@@ -13,7 +14,7 @@ export function App({ smurfs, getSmurfs }) {
       <div>
         {
           smurfs.smurfs.map(smurf => {
-            return <p>{smurf.name}</p>
+            return <Smurf smurf={smurf}/>
           })
         }
       </div>
